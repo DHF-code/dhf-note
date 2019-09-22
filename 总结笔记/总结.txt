@@ -1,0 +1,70 @@
+虚拟(virtualenv)环境的步骤：
+	1.安装		
+		pip install virtualenv
+	2.创建虚拟环境  
+		cd ~/项目文件夹
+		virtualenv .xxx
+	3.激活虚拟环境
+		source ~/项目文件夹/.xxx/bin/activate
+	4.查看虚拟环境
+			pip freeze 第三方安装包
+			pip list   系统安装包
+	4.退出虚拟环境
+		deactivate
+
+
+
+Flask项目的创建步骤：
+	1.安装
+		pip install flask
+	2.创建项目(模板)
+		from flask import Flask
+		app = Flask(__name__)
+		@app.route("/")
+		def index():
+			return "Hello"
+		app.run()
+	3.启动服务器 
+		python app.py
+	4.安装(命令行参数操作)
+		pip install flask-script
+	5.初始化
+		app.py改为manager.py
+		manager = Manager(app=app)
+		app.py改为manager.py
+	6.运行
+		python manager.py runserver -r
+		参数：
+			-p(端口) -h(主机) -d(调试) -r(重启)
+
+
+蓝图的步骤：
+	1.安装
+		pip install flask-blueprint
+	2.初始化蓝图
+		blue = Blueprint('blue',__name__)
+	3.进行路由注册
+		app.register_blueprint(blueprint=blue)
+
+Flask路由参数
+	 @blue.route('/getuuid/<uuid:uuid>/')
+	语法:<类型:变量名>
+	类型：
+	1.string
+	2.path
+	3.int
+	4.float
+	5.uuid
+	6.any
+
+反向解析
+	
+	url_for(蓝图的名字.方法名字)
+
+
+
+
+
+
+
+
